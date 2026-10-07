@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J&A Customs | Mini Bike Shop</title>
+<title>J&Acustoms | 3D Printed Moto</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;color:#f5f5f5;
@@ -41,11 +41,142 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 .cart-item{padding:15px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between}.empty{color:#888;margin:40px 0}
 .total{font-size:21px;font-weight:900;margin:25px 0}
 @media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.hero{min-height:70vh}h1{letter-spacing:-3px}.btn.dark{margin-left:0;margin-top:10px}}
+
+/* J&Acustoms chrome + sparkle theme */
+:root{
+  --purple:#8f3dff;
+  --deep-purple:#35105d;
+  --gold:#f2c14e;
+  --pink:#ffb6d9;
+  --white:#ffffff;
+  --black:#07070a;
+  --chrome1:#ffffff;
+  --chrome2:#9da4b2;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 12%,rgba(255,182,217,.40),transparent 28%),
+    radial-gradient(circle at 84% 18%,rgba(143,61,255,.52),transparent 34%),
+    radial-gradient(circle at 72% 78%,rgba(242,193,78,.25),transparent 30%),
+    linear-gradient(135deg,#050507 0%,#24103d 42%,#09090d 72%,#34134d 100%) !important;
+  background-attachment:fixed !important;
+}
+body:before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.85) 0 1px,transparent 1.7px),
+    radial-gradient(circle,rgba(242,193,78,.65) 0 1px,transparent 1.6px);
+  background-size:47px 47px,73px 73px;
+  background-position:0 0,20px 13px;
+  opacity:.32;
+}
+header{
+  background:linear-gradient(90deg,rgba(5,5,8,.94),rgba(55,17,87,.91),rgba(5,5,8,.94)) !important;
+  border-bottom:1px solid rgba(242,193,78,.45) !important;
+}
+.logo{
+  background:linear-gradient(180deg,#fff 0%,#aab0bc 36%,#fff 53%,#6e7480 75%,#fff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 18px rgba(255,255,255,.18);
+}
+.logo span{color:transparent !important}
+.hero{
+  background:
+    radial-gradient(circle at 78% 30%,rgba(255,182,217,.34),transparent 25%),
+    radial-gradient(circle at 65% 65%,rgba(143,61,255,.48),transparent 34%),
+    linear-gradient(135deg,rgba(5,5,8,.94),rgba(47,15,76,.86),rgba(8,8,12,.96)) !important;
+}
+h1{
+  background:linear-gradient(180deg,#fff 0%,#a9afbb 25%,#fff 44%,#f2c14e 70%,#fff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 16px rgba(143,61,255,.32));
+}
+h2{color:#fff;text-shadow:0 0 15px rgba(143,61,255,.35)}
+.eyebrow{color:var(--pink) !important}
+.card{
+  background:linear-gradient(145deg,rgba(12,12,18,.88),rgba(55,20,86,.72)) !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  box-shadow:0 14px 40px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.08);
+}
+.product-img{
+  background:
+    radial-gradient(circle at 25% 25%,rgba(255,255,255,.78) 0 1px,transparent 2px),
+    radial-gradient(circle at 75% 60%,rgba(242,193,78,.9) 0 1px,transparent 2px),
+    linear-gradient(135deg,#d9dce2 0%,#ffffff 16%,#767d8a 31%,#a84cff 50%,#ffb6d9 68%,#f2c14e 84%,#fff 100%) !important;
+  background-size:34px 34px,51px 51px,100% 100% !important;
+  color:#09090d !important;
+  font-weight:900;
+  text-shadow:0 1px 0 rgba(255,255,255,.65);
+}
+.btn{
+  background:linear-gradient(135deg,#fff,#d9dce2 35%,#ffb6d9 70%,#fff) !important;
+  color:#09090d !important;
+  box-shadow:0 0 18px rgba(255,182,217,.18);
+}
+.btn.dark{
+  background:linear-gradient(135deg,#17131d,#5c218d,#17131d) !important;
+  color:#fff !important;
+  border:1px solid rgba(242,193,78,.58) !important;
+}
+.about{
+  background:linear-gradient(120deg,rgba(7,7,11,.78),rgba(63,20,95,.65),rgba(7,7,11,.82)) !important;
+}
+.custom{
+  background:linear-gradient(145deg,rgba(10,10,15,.86),rgba(77,27,108,.62)) !important;
+  border:1px solid rgba(242,193,78,.42) !important;
+}
+select{
+  background:#100d16 !important;
+  border:1px solid rgba(255,182,217,.55) !important;
+}
+.cart{
+  background:linear-gradient(135deg,#f2c14e,#fff,#b9bec8);
+  color:#09090d;border-color:#fff !important;
+}
+#cartPanel{
+  background:linear-gradient(160deg,rgba(7,7,11,.98),rgba(55,17,87,.98)) !important;
+  border-left:1px solid rgba(242,193,78,.42);
+}
+footer{
+  background:rgba(5,5,8,.78);
+  border-top:1px solid rgba(242,193,78,.35) !important;
+}
+
+.product-photo{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:12px;background:#111;margin:10px 0 14px;border:1px solid rgba(255,255,255,.18);display:block}
+
+/* Dropdown layout fix */
+.card-body label{
+  display:block;
+  margin:14px 0 7px;
+}
+.card-body select{
+  display:block;
+  width:100%;
+  min-height:48px;
+  padding:10px 42px 10px 14px;
+  margin:0 0 14px;
+  border-radius:9px;
+  font:inherit;
+  font-size:16px;
+  font-weight:700;
+  color:#fff !important;
+  background:#100d16 !important;
+  border:1px solid rgba(255,182,217,.55) !important;
+}
+.card-body select option{
+  color:#111;
+  background:#fff;
+}
+.card-body .btn{
+  margin-top:2px;
+}
+
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">J&A<span> Customs</span></div>
+  <div class="logo">J&<span>Acustoms</span></div>
   <nav><a href="#shop">Shop</a><a href="#custom">Custom</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   <button class="cart" onclick="toggleCart()">Cart (<span id="count">0</span>)</button>
 </header>
@@ -64,7 +195,7 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 <section id="shop">
   <div class="section-head">
     <div><div class="eyebrow">THE COLLECTION</div><h2>MINI BIKE SHOP</h2></div>
-    <div class="muted">Multiple models • Multiple colors</div>
+    <div class="muted">Chrome • Sparkly Purple • Gold • Black • White • Sparkly Chrome • Light Pink</div>
   </div>
 
   <div class="grid">
@@ -72,16 +203,20 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
       <div class="product-img">SUR-RON LBX</div>
       <div class="card-body">
         <h3>Mini Sur-Ron LBX</h3>
-        <p class="muted">3D-printed Light Bee X mini bike. Available in different colors.</p>
+<p class="muted">3D-printed Light Bee X mini bike. Available in different colors.</p>
         <div style="margin:14px 0">
-          <label class="muted">Color</label>
-          <select id="lbxColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
-            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Pink</option><option>Custom Color</option>
+          <label class="muted">Frame Color</label>
+          <select id="lbxFrameColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
+          </select>
+          <label class="muted" style="display:block;margin-top:10px">Parts Color</label>
+          <select id="lbxPartsColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
           </select>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron LBX',10,'Not Built')">$10 Not Built</button>
-          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron LBX',15,'Built')">$15 Built</button>
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron LBX',10,'Not Built')">$20 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron LBX',15,'Built')">$20 Built</button>
         </div>
       </div>
     </article>
@@ -90,16 +225,20 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
       <div class="product-img">SUR-RON ULTRA BEE</div>
       <div class="card-body">
         <h3>Mini Sur-Ron Ultra Bee</h3>
-        <p class="muted">Miniature Ultra Bee model with multiple color choices.</p>
+<p class="muted">Miniature Ultra Bee model with multiple color choices.</p>
         <div style="margin:14px 0">
-          <label class="muted">Color</label>
-          <select id="ultraColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
-            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Pink</option><option>Custom Color</option>
+          <label class="muted">Frame Color</label>
+          <select id="ultraFrameColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
+          </select>
+          <label class="muted" style="display:block;margin-top:10px">Parts Color</label>
+          <select id="ultraPartsColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
           </select>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron Ultra Bee',10,'Not Built')">$10 Not Built</button>
-          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron Ultra Bee',15,'Built')">$15 Built</button>
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron Ultra Bee',10,'Not Built')">$20 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron Ultra Bee',15,'Built')">$20 Built</button>
         </div>
       </div>
     </article>
@@ -108,16 +247,20 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
       <div class="product-img">TALARIA</div>
       <div class="card-body">
         <h3>Mini Talaria</h3>
-        <p class="muted">Mini 3D-printed Talaria model available in different colors.</p>
+<p class="muted">Mini 3D-printed Talaria model available in different colors.</p>
         <div style="margin:14px 0">
-          <label class="muted">Color</label>
-          <select id="talariaColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
-            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Pink</option><option>Custom Color</option>
+          <label class="muted">Frame Color</label>
+          <select id="talariaFrameColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
+          </select>
+          <label class="muted" style="display:block;margin-top:10px">Parts Color</label>
+          <select id="talariaPartsColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
           </select>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn" style="flex:1" onclick="addProduct('Mini Talaria',10,'Not Built')">$10 Not Built</button>
-          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Talaria',15,'Built')">$15 Built</button>
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Talaria',10,'Not Built')">$20 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Talaria',15,'Built')">$20 Built</button>
         </div>
       </div>
     </article>
@@ -126,16 +269,20 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
       <div class="product-img">STARK VARG</div>
       <div class="card-body">
         <h3>Mini Stark Varg</h3>
-        <p class="muted">Mini Stark Varg model with a range of color options.</p>
+<p class="muted">Mini Stark Varg model with a range of color options.</p>
         <div style="margin:14px 0">
-          <label class="muted">Color</label>
-          <select id="vargColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
-            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Pink</option><option>Custom Color</option>
+          <label class="muted">Frame Color</label>
+          <select id="vargFrameColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
+          </select>
+          <label class="muted" style="display:block;margin-top:10px">Parts Color</label>
+          <select id="vargPartsColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option>
           </select>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn" style="flex:1" onclick="addProduct('Mini Stark Varg',10,'Not Built')">$10 Not Built</button>
-          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Stark Varg',15,'Built')">$15 Built</button>
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Stark Varg',10,'Not Built')">$20 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Stark Varg',15,'Built')">$20 Built</button>
         </div>
       </div>
     </article>
@@ -144,9 +291,11 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
       <div class="product-img">BIKE STAND</div>
       <div class="card-body">
         <h3>Mini Bike Stand</h3>
-        <p class="muted">A small display stand made for your J&A Customs mini bike.</p>
+        <p class="muted">A small display stand made for your J&Acustoms mini bike.</p>
         <div class="price">$5.00</div>
-        <button class="btn" style="width:100%" onclick="addProduct('Mini Bike Stand',5,'Standard')">ADD STAND • $5</button>
+        <label for="standColor"><b>Stand Color</b></label>
+        <select id="standColor"><option>Chrome</option><option>Sparkly Purple</option><option>Gold</option><option>Black</option><option>White</option><option>Sparkly Chrome</option><option>Light Blue</option><option>Light Pink</option></select>
+        <button class="btn" style="width:100%" onclick="addStand()">ADD STAND • $5</button>
       </div>
     </article>
   </div>
@@ -155,20 +304,20 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 <section id="custom" class="about">
  <div class="about-grid">
   <div><div class="eyebrow">MADE YOUR WAY</div><h2>CUSTOM BIKES</h2><p>Want a mini version of another bike? Send us the model and color you want and we'll work toward creating a custom little 3D-printed bike.</p></div>
-  <div class="custom"><h3>Custom Project</h3><p class="muted" style="margin:12px 0 22px">Tell us the bike model and color you want.</p><a class="btn" href="mailto:YOUR-EMAIL@example.com?subject=J%26A%20Customs%20Custom%20Print">REQUEST A CUSTOM BIKE</a></div>
+  <div class="custom"><h3>Custom Project</h3><p class="muted" style="margin:12px 0 22px">Tell us the bike model and color you want.</p><a class="btn" href="sms:7605570550?&body=Hi%20J%26Acustoms%2C%20I%20want%20to%20make%20a%20custom%20order.">REQUEST A CUSTOM BIKE</a></div>
  </div>
 </section>
 
 <section id="about">
  <div class="about-grid">
-  <div><div class="eyebrow">ABOUT J&A CUSTOMS</div><h2>TINY BIKES. BIG DETAIL.</h2></div>
-  <p>J&A Customs makes small 3D-printed versions of the bikes people love. Choose your model, choose your color, and choose built or not built. We also make $5 display stands for your mini bikes.</p>
+  <div><div class="eyebrow">ABOUT J&ACUSTOMS</div><h2>TINY BIKES. BIG DETAIL.</h2></div>
+  <p>J&Acustoms makes small 3D-printed versions of the bikes people love. Choose your model, choose your color, and choose built or not built. We also make $5 display stands for your mini bikes.</p>
  </div>
 </section>
 
 <section id="contact" class="about">
  <div class="about-grid">
-  <div><div class="eyebrow">TEXT US</div><h2>CONTACT J&A CUSTOMS</h2><p>Questions, orders, or custom mini bike requests? Send us a text.</p></div>
+  <div><div class="eyebrow">TEXT US</div><h2>CONTACT J&amp;ACUSTOMS</h2><p>Questions, orders, or custom mini bike requests? Send us a text.</p></div>
   <div class="custom">
    <h3>Text Only</h3>
    <p style="margin:16px 0"><strong>Jacob</strong><br>(858) 880-6929</p>
@@ -178,7 +327,7 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 </section>
 </main>
 
-<footer><div>© 2026 J&A Customs • Mini 3D-Printed Bikes</div><div>MINI 3D-PRINTED BIKES</div></footer>
+<footer><div>© 2026 J&Acustoms • Mini 3D-Printed Bikes</div><div>MINI 3D-PRINTED BIKES</div></footer>
 
 <aside id="cartPanel">
 <button class="close" onclick="toggleCart()">×</button><h2 style="margin-top:20px">YOUR CART</h2>
@@ -189,11 +338,23 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 
 <script>
 let cart=[];
+function addStand(){
+  const color=document.getElementById('standColor').value;
+  addProduct('Mini Bike Stand',5,color);
+}
 function addProduct(name,price,build){
-  let color='Standard';
-  const map={'Mini Sur-Ron LBX':'lbxColor','Mini Sur-Ron Ultra Bee':'ultraColor','Mini Talaria':'talariaColor','Mini Stark Varg':'vargColor'};
-  if(map[name]) color=document.getElementById(map[name]).value;
-  cart.push({name,price,build,color});
+  let frameColor='Standard', partsColor='Standard';
+  const map={
+    'Mini Sur-Ron LBX':['lbxFrameColor','lbxPartsColor'],
+    'Mini Sur-Ron Ultra Bee':['ultraFrameColor','ultraPartsColor'],
+    'Mini Talaria':['talariaFrameColor','talariaPartsColor'],
+    'Mini Stark Varg':['vargFrameColor','vargPartsColor']
+  };
+  if(map[name]){
+    frameColor=document.getElementById(map[name][0]).value;
+    partsColor=document.getElementById(map[name][1]).value;
+  }
+  cart.push({name,price,build,frameColor,partsColor});
   renderCart();
   document.getElementById('cartPanel').classList.add('open');
 }
@@ -202,7 +363,7 @@ function renderCart(){
  const items=document.getElementById('items');
  if(!cart.length){items.className='empty';items.textContent='Your cart is empty.';document.getElementById('total').textContent='';return}
  items.className='';
- items.innerHTML=cart.map((x,i)=>`<div class="cart-item"><span><b>${x.name}</b><br><small class="muted">${x.build} • ${x.color}</small></span><b>$${x.price.toFixed(2)}</b></div>`).join('');
+ items.innerHTML=cart.map((x,i)=>`<div class="cart-item"><span><b>${x.name}</b><br><small class="muted">${x.build} • Frame: ${x.frameColor} • Parts: ${x.partsColor}</small></span><b>$${x.price.toFixed(2)}</b></div>`).join('');
  document.getElementById('total').textContent='Total: $'+cart.reduce((s,x)=>s+x.price,0).toFixed(2);
 }
 function toggleCart(){document.getElementById('cartPanel').classList.toggle('open')}
