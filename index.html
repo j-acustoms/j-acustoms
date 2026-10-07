@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J&Acustoms | 3D Printed Moto</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:#f5f5f5;
+background:
+radial-gradient(circle at 15% 15%,rgba(0,120,255,.35),transparent 34%),
+radial-gradient(circle at 85% 30%,rgba(145,40,255,.30),transparent 34%),
+radial-gradient(circle at 55% 85%,rgba(255,45,70,.22),transparent 38%),
+linear-gradient(135deg,#071326 0%,#17102d 48%,#250b18 100%);
+background-attachment:fixed}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(7,13,28,.90);backdrop-filter:blur(14px);border-bottom:1px solid #252525;padding:18px 6%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:28px;font-weight:900;letter-spacing:-1px}.logo span{color:#aaa}
+nav{display:flex;gap:25px;font-size:14px;font-weight:700}
+nav a:hover{color:#aaa}
+.cart{border:1px solid #444;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
+.hero{min-height:78vh;padding:90px 6%;display:flex;align-items:center;background:radial-gradient(circle at 75% 40%,#333 0,#111 30%,#080808 65%)}
+.hero-inner{max-width:760px}.eyebrow{font-size:13px;letter-spacing:3px;color:#aaa;font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(55px,9vw,120px);line-height:.86;letter-spacing:-6px;margin-bottom:28px}
+.hero p{font-size:20px;color:#bbb;max-width:590px;line-height:1.5;margin-bottom:35px}
+.btn{display:inline-block;background:#f5f5f5;color:#080808;padding:15px 24px;border-radius:7px;font-weight:900;border:0;cursor:pointer}
+.btn.dark{background:#171717;color:#fff;border:1px solid #444;margin-left:8px}
+section{padding:80px 6%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}
+h2{font-size:42px;letter-spacing:-2px}.muted{color:#999}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:rgba(12,18,35,.78);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
+.product-img{height:250px;background:linear-gradient(135deg,rgba(0,112,255,.55),rgba(110,35,190,.42),rgba(255,45,75,.32));display:flex;align-items:center;justify-content:center;color:#777;font-size:13px;letter-spacing:2px}
+.card-body{padding:20px}.card h3{font-size:20px;margin-bottom:8px}.price{font-weight:900;font-size:19px;margin:15px 0}
+.card button{width:100%}
+.about{background:rgba(16,15,38,.70);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about p{color:#aaa;line-height:1.7;font-size:17px}
+.custom{border:1px solid #333;border-radius:16px;padding:35px;background:rgba(8,14,30,.72)}
+footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;border-top:1px solid #222}
+#cartPanel{position:fixed;right:0;top:0;height:100%;width:min(400px,92vw);background:rgba(10,15,31,.97);z-index:20;padding:25px;transform:translateX(100%);transition:.25s;box-shadow:-10px 0 30px #000}
+#cartPanel.open{transform:translateX(0)}.close{float:right;background:none;color:white;border:0;font-size:28px;cursor:pointer}
+.cart-item{padding:15px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between}.empty{color:#888;margin:40px 0}
+.total{font-size:21px;font-weight:900;margin:25px 0}
+@media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.hero{min-height:70vh}h1{letter-spacing:-3px}.btn.dark{margin-left:0;margin-top:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">J&<span>Amoto</span></div>
+  <nav><a href="#shop">Shop</a><a href="#custom">Custom</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <button class="cart" onclick="toggleCart()">Cart (<span id="count">0</span>)</button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">MINI 3D-PRINTED BIKES</div>
+    <h1>BUILT TO<br>STAND OUT.</h1>
+    <p>Tiny 3D-printed motorcycles made for collectors, desks, shelves, and anyone obsessed with bikes.</p>
+    <a class="btn" href="#shop">SHOP MINI BIKES</a>
+    <a class="btn dark" href="#custom">CUSTOM BIKE</a>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="section-head">
+    <div><div class="eyebrow">THE COLLECTION</div><h2>MINI BIKE SHOP</h2></div>
+    <div class="muted">Multiple models • Multiple colors</div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <div class="product-img">SUR-RON LBX</div>
+      <div class="card-body">
+        <h3>Mini Sur-Ron LBX</h3>
+        <p class="muted">3D-printed Light Bee X mini bike. Available in different colors.</p>
+        <div style="margin:14px 0">
+          <label class="muted">Color</label>
+          <select id="lbxColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Black</option><option>White</option><option>Purple</option><option>Red</option><option>Blue</option><option>Green</option><option>Custom Color</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron LBX',10,'Not Built')">$10 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron LBX',15,'Built')">$15 Built</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="product-img">SUR-RON ULTRA BEE</div>
+      <div class="card-body">
+        <h3>Mini Sur-Ron Ultra Bee</h3>
+        <p class="muted">Miniature Ultra Bee model with multiple color choices.</p>
+        <div style="margin:14px 0">
+          <label class="muted">Color</label>
+          <select id="ultraColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Black</option><option>White</option><option>Purple</option><option>Red</option><option>Blue</option><option>Green</option><option>Custom Color</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Sur-Ron Ultra Bee',10,'Not Built')">$10 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Sur-Ron Ultra Bee',15,'Built')">$15 Built</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="product-img">TALARIA</div>
+      <div class="card-body">
+        <h3>Mini Talaria</h3>
+        <p class="muted">Mini 3D-printed Talaria model available in different colors.</p>
+        <div style="margin:14px 0">
+          <label class="muted">Color</label>
+          <select id="talariaColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Black</option><option>White</option><option>Purple</option><option>Red</option><option>Blue</option><option>Green</option><option>Custom Color</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Talaria',10,'Not Built')">$10 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Talaria',15,'Built')">$15 Built</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="product-img">STARK VARG</div>
+      <div class="card-body">
+        <h3>Mini Stark Varg</h3>
+        <p class="muted">Mini Stark Varg model with a range of color options.</p>
+        <div style="margin:14px 0">
+          <label class="muted">Color</label>
+          <select id="vargColor" style="width:100%;padding:11px;margin-top:6px;background:#181818;color:#fff;border:1px solid #444;border-radius:6px">
+            <option>Black</option><option>White</option><option>Purple</option><option>Red</option><option>Blue</option><option>Green</option><option>Custom Color</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn" style="flex:1" onclick="addProduct('Mini Stark Varg',10,'Not Built')">$10 Not Built</button>
+          <button class="btn dark" style="flex:1;margin:0" onclick="addProduct('Mini Stark Varg',15,'Built')">$15 Built</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="product-img">BIKE STAND</div>
+      <div class="card-body">
+        <h3>Mini Bike Stand</h3>
+        <p class="muted">A small display stand made for your J&Acustoms mini bike.</p>
+        <div class="price">$5.00</div>
+        <button class="btn" style="width:100%" onclick="addProduct('Mini Bike Stand',5,'Standard')">ADD STAND • $5</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="custom" class="about">
+ <div class="about-grid">
+  <div><div class="eyebrow">MADE YOUR WAY</div><h2>CUSTOM BIKES</h2><p>Want a mini version of another bike? Send us the model and color you want and we'll work toward creating a custom little 3D-printed bike.</p></div>
+  <div class="custom"><h3>Custom Project</h3><p class="muted" style="margin:12px 0 22px">Tell us the bike model and color you want.</p><a class="btn" href="mailto:YOUR-EMAIL@example.com?subject=J%26Amoto%20Custom%20Print">REQUEST A CUSTOM BIKE</a></div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="about-grid">
+  <div><div class="eyebrow">ABOUT J&AMOTO</div><h2>TINY BIKES. BIG DETAIL.</h2></div>
+  <p>J&Acustoms makes small 3D-printed versions of the bikes people love. Choose your model, choose your color, and choose built or not built. We also make $5 display stands for your mini bikes.</p>
+ </div>
+</section>
+
+<section id="contact" class="about">
+ <div class="about-grid">
+  <div><div class="eyebrow">TEXT US</div><h2>CONTACT J&amp;ACUSTOMS</h2><p>Questions, orders, or custom mini bike requests? Send us a text.</p></div>
+  <div class="custom">
+   <h3>Text Only</h3>
+   <p style="margin:16px 0"><strong>Jacob</strong><br>(858) 880-6929</p>
+   <p><strong>Archer</strong><br>(760) 557-0550</p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div>© 2026 J&Acustoms • Mini 3D-Printed Bikes</div><div>MINI 3D-PRINTED BIKES</div></footer>
+
+<aside id="cartPanel">
+<button class="close" onclick="toggleCart()">×</button><h2 style="margin-top:20px">YOUR CART</h2>
+<div id="items" class="empty">Your cart is empty.</div>
+<div id="total" class="total"></div>
+<button class="btn" style="width:100%" onclick="checkout()">CHECKOUT</button>
+</aside>
+
+<script>
+let cart=[];
+function addProduct(name,price,build){
+  let color='Standard';
+  const map={'Mini Sur-Ron LBX':'lbxColor','Mini Sur-Ron Ultra Bee':'ultraColor','Mini Talaria':'talariaColor','Mini Stark Varg':'vargColor'};
+  if(map[name]) color=document.getElementById(map[name]).value;
+  cart.push({name,price,build,color});
+  renderCart();
+  document.getElementById('cartPanel').classList.add('open');
+}
+function renderCart(){
+ document.getElementById('count').textContent=cart.length;
+ const items=document.getElementById('items');
+ if(!cart.length){items.className='empty';items.textContent='Your cart is empty.';document.getElementById('total').textContent='';return}
+ items.className='';
+ items.innerHTML=cart.map((x,i)=>`<div class="cart-item"><span><b>${x.name}</b><br><small class="muted">${x.build} • ${x.color}</small></span><b>$${x.price.toFixed(2)}</b></div>`).join('');
+ document.getElementById('total').textContent='Total: $'+cart.reduce((s,x)=>s+x.price,0).toFixed(2);
+}
+function toggleCart(){document.getElementById('cartPanel').classList.toggle('open')}
+function checkout(){alert('Checkout is ready to connect to Stripe, PayPal, or another payment provider.')}
+</script>
+</body>
+</html>
