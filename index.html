@@ -40,7 +40,23 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
 #cartPanel.open{transform:translateX(0)}.close{float:right;background:none;color:white;border:0;font-size:28px;cursor:pointer}
 .cart-item{padding:15px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between}.empty{color:#888;margin:40px 0}
 .total{font-size:21px;font-weight:900;margin:25px 0}
-@media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.hero{min-height:70vh}h1{letter-spacing:-3px}.btn.dark{margin-left:0;margin-top:10px}}
+.palette-wrap{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.palette-panel{background:rgba(12,18,35,.8);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:24px}
+.panel-header{margin-bottom:18px}
+.panel-header h3{font-size:28px;letter-spacing:-1px;margin-top:6px}
+.palette-grid{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:12px}
+.palette-card{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#111827;color:#fff;cursor:pointer;transition:.2s;min-height:56px;text-align:left}
+.palette-card.active{border-color:#f4d35e;box-shadow:0 0 0 1px rgba(244,211,94,.5),0 12px 24px rgba(0,0,0,.2)}
+.swatch{width:20px;height:20px;border-radius:50%;display:inline-block;border:2px solid rgba(255,255,255,.45);box-shadow:0 0 12px rgba(255,255,255,.14)}
+.chrome{background:linear-gradient(135deg,#e8ebf0,#9aa3ad,#dfe5ee)}
+.sparkly-purple{background:linear-gradient(135deg,#d7b7ff,#8b5cf6,#4c1d95)}
+.gold{background:linear-gradient(135deg,#f5df8f,#d4af37,#8a6a00)}
+.black{background:linear-gradient(135deg,#1d1d1f,#000000,#333)}
+.white{background:linear-gradient(135deg,#ffffff,#dfe7f3,#b7c3d1)}
+.sparkly-chrome{background:linear-gradient(135deg,#f6f4ff,#d8dce5,#949db2)}
+.light-pink{background:linear-gradient(135deg,#fce7f3,#f9a8d4,#f3d2eb)}
+.custom-blue{background:linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8)}
+@media(max-width:800px){nav{display:none}.grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.hero{min-height:70vh}h1{letter-spacing:-3px}.btn.dark{margin-left:0;margin-top:10px}.palette-wrap{grid-template-columns:1fr}.palette-grid{grid-template-columns:repeat(2,minmax(120px,1fr))}}
 </style>
 </head>
 <body>
@@ -58,6 +74,49 @@ footer{padding:35px 6%;display:flex;justify-content:space-between;color:#777;bor
     <p>Tiny 3D-printed motorcycles made for collectors, desks, shelves, and anyone obsessed with bikes.</p>
     <a class="btn" href="#shop">SHOP MINI BIKES</a>
     <a class="btn dark" href="#custom">CUSTOM BIKE</a>
+  </div>
+</section>
+
+<section id="options">
+  <div class="section-head">
+    <div><div class="eyebrow">CHOOSE YOUR FINISH</div><h2>FRAME &amp; PARTS</h2></div>
+    <div class="muted">Choose the look you want</div>
+  </div>
+
+  <div class="palette-wrap">
+    <div class="palette-panel">
+      <div class="panel-header">
+        <div class="eyebrow">FRAME</div>
+        <h3>Frame Colors</h3>
+      </div>
+      <div class="palette-grid">
+        <button class="palette-card active" type="button"><span class="swatch chrome"></span><span>Chrome</span></button>
+        <button class="palette-card" type="button"><span class="swatch sparkly-purple"></span><span>Sparkly Purple</span></button>
+        <button class="palette-card" type="button"><span class="swatch gold"></span><span>Gold</span></button>
+        <button class="palette-card" type="button"><span class="swatch black"></span><span>Black</span></button>
+        <button class="palette-card" type="button"><span class="swatch white"></span><span>White</span></button>
+        <button class="palette-card" type="button"><span class="swatch sparkly-chrome"></span><span>Sparkly Chrome</span></button>
+        <button class="palette-card" type="button"><span class="swatch light-pink"></span><span>Light Pink</span></button>
+        <button class="palette-card" type="button"><span class="swatch custom-blue"></span><span>Custom Color</span></button>
+      </div>
+    </div>
+
+    <div class="palette-panel">
+      <div class="panel-header">
+        <div class="eyebrow">PARTS</div>
+        <h3>Parts Colors</h3>
+      </div>
+      <div class="palette-grid">
+        <button class="palette-card active" type="button"><span class="swatch chrome"></span><span>Chrome</span></button>
+        <button class="palette-card" type="button"><span class="swatch sparkly-purple"></span><span>Sparkly Purple</span></button>
+        <button class="palette-card" type="button"><span class="swatch gold"></span><span>Gold</span></button>
+        <button class="palette-card" type="button"><span class="swatch black"></span><span>Black</span></button>
+        <button class="palette-card" type="button"><span class="swatch white"></span><span>White</span></button>
+        <button class="palette-card" type="button"><span class="swatch sparkly-chrome"></span><span>Sparkly Chrome</span></button>
+        <button class="palette-card" type="button"><span class="swatch light-pink"></span><span>Light Pink</span></button>
+        <button class="palette-card" type="button"><span class="swatch custom-blue"></span><span>Custom Color</span></button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -207,6 +266,13 @@ function renderCart(){
 }
 function toggleCart(){document.getElementById('cartPanel').classList.toggle('open')}
 function checkout(){alert('Checkout is ready to connect to Stripe, PayPal, or another payment provider.')}
+
+document.querySelectorAll('.palette-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    document.querySelectorAll('.palette-card').forEach(function(el){el.classList.remove('active')});
+    card.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
